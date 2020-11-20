@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnBoardingActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="#DB4062" />
+    <Button
+        android:id="@+id/btnSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Skip"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="@font/quicksand_medium"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/btnSkip"
+        android:layout_above="@id/wrapperBottom"/>
+    <RelativeLayout
+        android:id="@+id/wrapperBottom"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="32dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true">
+            <View
+                android:id="@+id/indicator1"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/item_selected" />
+            <View
+                android:id="@+id/indicator2"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/item_unselected" />
+            <View
+                android:id="@+id/indicator3"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/item_unselected" />
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnNext"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/arrow_right"
+            app:fabCustomSize="64dp"
+            android:tint="@android:color/white"
+            app:tint="@android:color/white"
+            android:theme="@style/Widget.MaterialComponents.FloatingActionButton"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+</RelativeLayout>
