@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".RegisterActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@color/red" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="48dp"
+            android:paddingStart="32dp"
+            android:paddingEnd="32dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daftar"
+                android:textColor="@color/red"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:textSize="36sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="No. KTP"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="No. Telepon"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="Nama"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_style"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="Jenis Kelamin"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/gender"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/edittext_style"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/red"
+                android:text="Tanggal Lahir"
+                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="14sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_style"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Daftar"
+                style="@style/Widget.MaterialComponents.Button"
+                app:cornerRadius="100dp"
+                app:backgroundTint="@color/red"
+                android:layout_marginTop="24dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
