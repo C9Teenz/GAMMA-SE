@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecHealth">
-        <activity android:name=".VerifikasiActivity"></activity>
+        <activity android:name=".DetailRiwayatPenyakit"></activity>
+        <activity android:name=".DetailPasienActivity" />
+        <activity android:name=".VerifikasiActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
     </application>
 
