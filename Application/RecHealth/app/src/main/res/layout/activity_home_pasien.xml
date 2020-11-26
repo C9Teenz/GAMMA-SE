@@ -1,89 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:backgroundTint="#DB4062"
+    android:orientation="vertical"
     tools:context=".HomePasien">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="375dp"
-        android:layout_height="208dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/detailArtikel"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="493dp" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar4"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="#DB4062"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="153dp"
-        tools:layout_editor_absoluteY="2dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RecHealth"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="150dp"
-        tools:layout_editor_absoluteY="16dp" />
 
-    <SearchView
-        android:layout_width="27dp"
-        android:layout_height="39dp"
-        tools:layout_editor_absoluteX="368dp"
-        tools:layout_editor_absoluteY="16dp" />
+        <RelativeLayout
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/white"
+            android:elevation="8dp">
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="411dp"
-        android:layout_height="40dp"
-        android:background="#FFEB3B"
-        android:backgroundTint="#FFFFFF"
-        android:text="Anda kontrol lagi tanggal 12 Januari"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="67dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginStart="24dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Daftar Checkup"
+                android:textColor="@color/red"
+                android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="412dp"
-        android:layout_height="31dp"
-        android:text="Lihat Riwayat Penyakit"
-        android:textColor="#DB4062"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="107dp" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                android:padding="16dp"
+                android:src="@drawable/ic_round_search_24"
+                android:tint="#6F6F6F" />
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="375dp"
-        android:layout_height="208dp"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/detailArtikel"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="157dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:elevation="8dp"
+            android:fontFamily="@font/inter_medium"
+            android:gravity="left"
+            android:padding="6dp"
+            android:text="Anda control lagi tanggal 12 Januari"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:backgroundTint="#FBE414" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="374dp"
-        android:layout_height="90dp"
-        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid6unt..."
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="382dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red"
+            android:elevation="8dp"
+            android:fontFamily="@font/inter_bold"
+            android:gravity="left"
+            android:padding="6dp"
+            android:text="Lihat Riwayat Penyakit"
+            android:textAllCaps="false"
+            android:textColor="@color/red"
+            android:textSize="12sp"
+            app:backgroundTint="#fff" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_artikel" />
+
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        app:srcCompat="@drawable/Enabled"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="659dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:backgroundTint="@color/red"
+        android:src="@drawable/ic_baseline_add_24"
+        app:tint="@color/white"
+        android:layout_margin="24dp" />
+</RelativeLayout>

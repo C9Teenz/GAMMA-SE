@@ -15,7 +15,13 @@
         <activity android:name=".DetailArtikel" />
         <activity android:name=".FormDaftarCheckUp" />
         <activity android:name=".FormCatatanMedis" />
-        <activity android:name=".HalamanAwal" />
+        <activity android:name=".HalamanAwal">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity android:name=".VerifikasiActivity"></activity>
@@ -24,11 +30,7 @@
         <activity android:name=".DetailPasienActivity" />
 
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".RegisterActivity"></activity>

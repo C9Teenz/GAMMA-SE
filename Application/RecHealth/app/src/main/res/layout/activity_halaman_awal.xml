@@ -10,15 +10,18 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/iconRecHealth"
-        tools:layout_editor_absoluteX="166dp"
-        tools:layout_editor_absoluteY="123dp" />
+        android:layout_marginTop="96dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_rec_health" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:fontFamily="@font/inter_medium"
         android:text="RecHealth adalah aplikasi pencatatan kesehatan anda."
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -28,25 +31,40 @@
         android:id="@+id/imageView2"
         android:layout_width="351dp"
         android:layout_height="380dp"
-        app:srcCompat="@drawable/iconDoctor"
-        tools:layout_editor_absoluteX="31dp"
-        tools:layout_editor_absoluteY="323dp" />
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icon_doctor" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        android:layout_width="116dp"
-        android:layout_height="45dp"
-        android:text="Daftar"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="595dp"
-        app:backgroundTint="#DB4062" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
-        android:layout_width="118dp"
-        android:layout_height="45dp"
-        android:text="Masuk"
-        tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="595dp"
-        app:backgroundTint="#DB4062"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDaftar"
+            android:layout_width="116dp"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:text="Daftar"
+            app:backgroundTint="#DB4062"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="595dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMasuk"
+            android:layout_width="118dp"
+            android:layout_height="45dp"
+            android:layout_margin="16dp"
+            android:text="Masuk"
+            app:backgroundTint="#DB4062"
+            tools:layout_editor_absoluteX="244dp"
+            tools:layout_editor_absoluteY="595dp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
