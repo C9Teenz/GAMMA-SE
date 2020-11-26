@@ -72,9 +72,11 @@
             app:backgroundTint="#fff" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="8dp"
+            android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="8"
             tools:listitem="@layout/item_artikel" />
