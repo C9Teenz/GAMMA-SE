@@ -11,7 +11,7 @@ class HomePasien : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_pasien)
 
-        val adapter = ArtikelAdapter()
+        val adapter = ArtikelAdapter(this)
         rvRecyclerView.adapter = adapter
         rvRecyclerView.layoutManager = LinearLayoutManager(this)
     }
