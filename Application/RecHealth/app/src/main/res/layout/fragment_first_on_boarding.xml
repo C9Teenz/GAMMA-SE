@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".onboarding.FirstOnBoarding"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/onboarding1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Riwayat kesehatan"
+        android:textColor="@color/red"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/quicksand_bold"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disini tersedia riwayat \n penyakit dan diagnosis \n pasien. "
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:fontFamily="@font/inter_medium"/>
+
+
+
+
+
+</LinearLayout>
