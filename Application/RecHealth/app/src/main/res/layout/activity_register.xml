@@ -102,6 +102,7 @@
                 android:background="@drawable/edittext_style"/>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnDaftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Daftar"

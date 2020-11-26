@@ -1,5 +1,6 @@
 package com.gamma.rechealth
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,5 +15,10 @@ class HomePasien : AppCompatActivity() {
         val adapter = ArtikelAdapter(this)
         rvRecyclerView.adapter = adapter
         rvRecyclerView.layoutManager = LinearLayoutManager(this)
+
+        fabDaftar.setOnClickListener {
+            val intent = Intent(this, FormDaftarCheckUp::class.java)
+            startActivity(intent)
+        }
     }
 }
