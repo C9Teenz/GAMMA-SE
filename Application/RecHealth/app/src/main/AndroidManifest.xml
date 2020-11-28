@@ -9,8 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecHealth">
-
-        <activity android:name=".SearchActivity"></activity>
+        <activity android:name=".HomeDokterActivity"></activity>
+        <activity
+            android:name=".DaftarRiwayatPenyakitActivity"
+            android:label="@string/title_activity_daftar_riwayat_penyakit"
+            android:theme="@style/Theme.RecHealth.NoActionBar" />
+        <activity android:name=".DetailRiwayatPenyakitActivity" />
+        <activity android:name=".SearchActivity" />
         <activity
             android:name=".OnBoardingActivity"
             android:label="@string/title_activity_on_boarding" />

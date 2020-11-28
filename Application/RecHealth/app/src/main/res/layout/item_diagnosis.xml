@@ -17,7 +17,7 @@
             android:layout_marginStart="12dp"
             android:layout_alignTop="@id/leftContent"
             android:layout_alignBottom="@id/leftContent"
-           />
+            />
         <TextView
             android:id="@+id/tvHelpContentNumber"
             android:layout_width="26dp"
