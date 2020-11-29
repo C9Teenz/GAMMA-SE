@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="24dp"
             android:fontFamily="@font/quicksand_bold"
             android:text="Daftar Checkup"
             android:textColor="@color/red"
@@ -71,12 +70,13 @@
                 android:background="@drawable/edittext_style"/>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button3"
+                android:id="@+id/btnDaftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_marginTop="8dp"
                 android:text="Daftar"
+                android:fontFamily="@font/inter_bold"
                 android:textAllCaps="false"
                 app:cornerRadius="50dp"
                 app:backgroundTint="#DB4062" />
