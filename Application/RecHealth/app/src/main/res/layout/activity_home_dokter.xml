@@ -23,7 +23,7 @@
             android:fontFamily="@font/quicksand_bold"
             android:textColor="@color/red"
             android:textSize="20sp"
-            tools:text="RecHealth" />
+            android:text="RecHealth" />
 
         <ImageButton
             android:id="@+id/btnSearch"
@@ -44,8 +44,11 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="16dp"
         android:background="#FBE414"
+        android:elevation="8dp"
         android:fontFamily="@font/inter_medium"
         android:paddingStart="26px"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:text="Praktik Selanjutnya pukul 12:00 - 15:00"
         android:textColor="@color/white" />
 
@@ -53,70 +56,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/inter_bold"
-        android:text="Daftar Pasien" />
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="4dp"
-        app:cardCornerRadius="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="FLEX"
-                android:textColor="@color/red" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="77dp"
-                    android:layout_weight="0.5"
-                    android:fontFamily="@font/inter_light"
-                    android:text="Diagnosis" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:layout_weight="0.5"
-                    android:fontFamily="@font/inter_semibold"
-                    android:gravity="end"
-                    android:text="Flex" />
-            </LinearLayout>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+        android:text="Daftar Pasien"
+        android:textSize="16sp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPasien"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="7"
         tools:listitem="@layout/diagnosis_pasien">
