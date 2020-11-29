@@ -25,5 +25,10 @@ class HomePasien : AppCompatActivity() {
             val intent = Intent(this, DaftarRiwayatPenyakitActivity::class.java)
             startActivity(intent)
         }
+
+        btnMap.setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
