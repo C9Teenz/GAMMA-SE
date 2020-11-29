@@ -20,5 +20,10 @@ class HomePasien : AppCompatActivity() {
             val intent = Intent(this, FormDaftarCheckUp::class.java)
             startActivity(intent)
         }
+
+        btnRiwayatPenyakit.setOnClickListener {
+            val intent = Intent(this, DaftarRiwayatPenyakitActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

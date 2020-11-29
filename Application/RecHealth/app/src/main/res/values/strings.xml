@@ -20,6 +20,20 @@
         <item>Laki-laki</item>
         <item>Perempuan</item>
     </string-array>
+
+    <string-array name="rumah_sakit">
+        <item>Margono</item>
+        <item>Amanda</item>
+        <item>Ananda</item>
+        <item>Hermina</item>
+    </string-array>
+
+    <string-array name="poli">
+        <item>Umum</item>
+        <item>Gigi</item>
+        <item>Paru</item>
+        <item>THT</item>
+    </string-array>
     <string name="title_activity_daftar_riwayat_penyakit">ScrollingActivity</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
