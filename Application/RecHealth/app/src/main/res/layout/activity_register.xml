@@ -41,8 +41,10 @@
                 android:layout_marginBottom="8dp"
                 android:textSize="14sp" />
             <EditText
+                android:id="@+id/etNoKtp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:background="@drawable/edittext_style"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -54,8 +56,10 @@
                 android:layout_marginBottom="8dp"
                 android:textSize="14sp" />
             <EditText
+                android:id="@+id/etNomorTelepon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="phone"
                 android:background="@drawable/edittext_style"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -67,8 +71,10 @@
                 android:layout_marginBottom="8dp"
                 android:textSize="14sp" />
             <EditText
+                android:id="@+id/etNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:background="@drawable/edittext_style"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -85,6 +91,7 @@
                 android:entries="@array/gender"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
+                android:id="@+id/etJenisKelamin"
                 android:background="@drawable/edittext_style"/>
 
             <TextView
@@ -99,6 +106,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/etTanggalLahir"
                 android:background="@drawable/edittext_style"/>
 
             <com.google.android.material.button.MaterialButton

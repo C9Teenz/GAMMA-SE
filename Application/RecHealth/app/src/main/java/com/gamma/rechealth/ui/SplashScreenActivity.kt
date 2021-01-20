@@ -1,9 +1,11 @@
-package com.gamma.rechealth
+package com.gamma.rechealth.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.gamma.rechealth.OnBoardingActivity
+import com.gamma.rechealth.R
 
 class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,9 +14,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             startActivity(
-                Intent(this, HomePasien::class.java)
+                Intent(this, OnBoardingActivity::class.java)
             )
         },2000)
-
     }
 }

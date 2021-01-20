@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "419873098964",
+    "project_id": "rechealth-9b998",
+    "storage_bucket": "rechealth-9b998.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419873098964:android:04a53f51868c8635a3ff41",
+        "android_client_info": {
+          "package_name": "com.gamma.rechealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419873098964-u6hqtf1hdjs57d3sbubc7514k54avc62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeraLKyetDIiTXAmfyxHjznx6ofV22nxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419873098964-u6hqtf1hdjs57d3sbubc7514k54avc62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
