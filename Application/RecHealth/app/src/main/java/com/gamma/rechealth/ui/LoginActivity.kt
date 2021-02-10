@@ -1,37 +1,49 @@
-package com.gamma.rechealth
+package com.gamma.rechealth.ui
 
+import android.Manifest
 import android.content.Intent
+import android.content.IntentFilter
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import com.gamma.rechealth.HomeDokterActivity
+import com.gamma.rechealth.R
 import com.gamma.rechealth.firebase.auth.Auth
 import com.gamma.rechealth.firebase.firestore.FirestoreUser
+import com.gamma.rechealth.helper.OTPReceiver
 import com.gamma.rechealth.model.User
-import com.gamma.rechealth.ui.VerifikasiActivity
+import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_login.pvOTP
-import kotlinx.android.synthetic.main.activity_verifikasi.*
 import java.util.concurrent.TimeUnit
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), OTPReceiver.OTPReceiveListener  {
     var verificationId = ""
     var user : User? = User()
+    private var smsReceiver: OTPReceiver? = null
+    companion object {
+        private const val SMS_REQUEST_CODE = 101
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        requestPermissionSMS()
+        startSMSListener()
         btnMasuk.setOnClickListener {
             verifyPhone()
         }
         Log.d(VerifikasiActivity.EXTRA_USER, user.toString())
         btnarrow.setOnClickListener {
             if(TextUtils.isEmpty(etPhoneNumber.text)){
-                Toast.makeText(this, "Isi cok", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Isi dulu", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val phoneNumber = if (etPhoneNumber.text[0].toString() == "0") {
@@ -75,6 +87,16 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+    private fun requestPermissionSMS() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS) !=
+            PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECEIVE_SMS),
+                SMS_REQUEST_CODE
+            )
+        }
+    }
+
     private fun verifyPhone() {
         val otpCode = pvOTP.text.toString()
         val credential = PhoneAuthProvider.getCredential(verificationId, otpCode)
@@ -91,8 +113,13 @@ class LoginActivity : AppCompatActivity() {
                             user?.idUser = authUser?.uid!!
                             FirestoreUser.getUser(user!!) { isExist, user ->
                                 if (isExist) {
-                                    startActivity(Intent(this, HomePasien::class.java))
-                                    finishAffinity()
+                                    if(user?.role == "USER"){
+                                        startActivity(Intent(this, HomePasien::class.java))
+                                        finishAffinity()
+                                    } else if(user?.role == "DOKTER") {
+                                        startActivity(Intent(this, HomeDokterActivity::class.java))
+                                        finishAffinity()
+                                    }
                                 } else {
                                     Toast.makeText(this, "Nomor Telephone Belum Terdaftar", Toast.LENGTH_SHORT)
                                         .show()
@@ -106,5 +133,36 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun startSMSListener() {
+        try {
+            smsReceiver = OTPReceiver()
+            smsReceiver!!.initOTPListener(this)
+
+            val intentFilter = IntentFilter()
+            intentFilter.addAction(SmsRetriever.SMS_RETRIEVED_ACTION)
+            this.registerReceiver(smsReceiver, intentFilter)
+
+            val client = SmsRetriever.getClient(this)
+
+            val task = client.startSmsRetriever()
+            task.addOnSuccessListener {
+                // API successfully started
+            }
+
+            task.addOnFailureListener {
+                // Fail to start API
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
+    }
+    override fun onOTPReceived(otp: String) {
+        pvOTP.setText(otp)
+    }
+
+    override fun onOTPTimeOut() {
+        TODO("Not yet implemented")
+    }
 
 }

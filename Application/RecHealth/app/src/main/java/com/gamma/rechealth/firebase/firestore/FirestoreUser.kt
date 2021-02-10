@@ -14,6 +14,21 @@ object FirestoreUser {
             }
     }
 
+    fun searchUser(ktp:String, callback: (Boolean, User?) -> Unit){
+        FirestoreInstance.instance.collection(collection).whereEqualTo("noKTP", ktp).get()
+            .addOnSuccessListener {
+                if(!it.isEmpty){
+                    val user = it.toObjects(User::class.java)[0]
+                    callback(true, user)
+                } else {
+                    callback(false, null)
+                }
+            }
+            .addOnFailureListener {
+                callback(false, null)
+            }
+    }
+
     fun getUser(user: User, callback: (Boolean, User?) -> Unit) {
         FirestoreInstance.instance.collection(collection).document(user.idUser).get()
             .addOnSuccessListener {

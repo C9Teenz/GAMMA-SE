@@ -20,6 +20,7 @@
         android:padding="12dp">
 
         <TextView
+            android:id="@+id/tvPasienn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
@@ -43,6 +44,7 @@
                 android:text="Diagnosis" />
 
             <TextView
+                android:id="@+id/tvPenyakitt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"

@@ -6,16 +6,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gamma.rechealth.DetailArtikel
+import com.bumptech.glide.Glide
 import com.gamma.rechealth.R
+import com.gamma.rechealth.model.Article
+import com.gamma.rechealth.ui.DetailArtikel
 import kotlinx.android.synthetic.main.item_artikel.view.*
 
-class ArtikelAdapter(val context: Context) : RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
+class ArtikelAdapter(val articles: List<Article>, val context: Context) :
+    RecyclerView.Adapter<ArtikelAdapter.ViewHolder>() {
     class ViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(context: Context) {
-            itemView.itemArtikel.setOnClickListener {
-                val intent = Intent(context, DetailArtikel::class.java)
-                context.startActivity(intent)
+        fun bind(article: Article, context: Context) {
+            itemView.apply {
+                Glide.with(this).load(article.image).into(ivArticle)
+                tvTitle.text = article.title
+                tvContent.text = article.content
+                itemArtikel.setOnClickListener {
+                    val intent = Intent(
+                        context,
+                        DetailArtikel::class.java
+                    ).putExtra(DetailArtikel.EXTRA_ARTICLE, article)
+                    context.startActivity(intent)
+                }
+
             }
         }
     }
@@ -26,10 +38,10 @@ class ArtikelAdapter(val context: Context) : RecyclerView.Adapter<ArtikelAdapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(context)
+        holder.bind(articles[position], context)
     }
 
     override fun getItemCount(): Int {
-        return 7
+        return articles.size
     }
 }

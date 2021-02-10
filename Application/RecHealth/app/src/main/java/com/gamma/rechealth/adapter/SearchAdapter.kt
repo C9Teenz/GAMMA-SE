@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gamma.rechealth.DetailRiwayatPenyakit
 import com.gamma.rechealth.R
+import com.gamma.rechealth.model.Penyakit
+import com.gamma.rechealth.model.User
 import kotlinx.android.synthetic.main.item_jadwal_title.view.*
+import kotlinx.android.synthetic.main.item_pasien_active.view.*
 import kotlinx.android.synthetic.main.item_riwayat_penyakit.view.*
 
-class SearchAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class SearchAdapter(val context: Context, val data: List<*>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val PASIEN = 1
@@ -20,10 +24,20 @@ class SearchAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
     }
 
     class DiagnosisViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(context: Context) {
+        fun bindView(context: Context, penyakit: Penyakit) {
+            view.apply {
+                tvPenyakit.text = penyakit.penyakit
+                tvTanggalPeriksa.text = penyakit.diperiksaPada
+                tvRumahSakit.text = penyakit.rumahSakit
+                tvPoli.text = penyakit.poli
+                tvDokter.text = penyakit.namaDokter
+            }
             view.itemRiwayatPenyakit.setOnClickListener {
                 context.startActivity(
-                    Intent(context, DetailRiwayatPenyakit::class.java)
+                    Intent(context, DetailRiwayatPenyakit::class.java).putExtra(
+                        DetailRiwayatPenyakit.EXTRA_PENYAKIT,
+                        penyakit
+                    )
                 )
             }
         }
@@ -37,8 +51,12 @@ class SearchAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
     }
 
     class PasienViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(context: Context) {
-
+        fun bindView(context: Context, user: User) {
+            view.apply {
+                tvPasien.text = user.nama
+                tvTitle.text = "Tanggal Lahir"
+                tvPenyakitAktif.text = user.tanggalLahir
+            }
         }
     }
 
@@ -51,12 +69,14 @@ class SearchAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
             }
             TITLE -> {
                 val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.item_jadwal_title, parent, false)
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_jadwal_title, parent, false)
                 TitleViewHolder(view)
             }
             else -> {
                 val view =
-                    LayoutInflater.from(parent.context).inflate(R.layout.item_pasien_active, parent, false)
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.item_pasien_active, parent, false)
                 PasienViewHolder(view)
             }
         }
@@ -65,18 +85,18 @@ class SearchAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.Vi
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (position) {
             0 -> {
-                (holder as PasienViewHolder).bindView(context)
+                (holder as PasienViewHolder).bindView(context, data[position] as User)
             }
             1 -> {
                 (holder as TitleViewHolder).bindView(context)
             }
             else -> {
-                (holder as DiagnosisViewHolder).bindView(context)
+                (holder as DiagnosisViewHolder).bindView(context, data[position] as Penyakit)
             }
         }
     }
 
-    override fun getItemCount(): Int = 7
+    override fun getItemCount(): Int = data.size
 
     override fun getItemViewType(position: Int): Int {
         return when {

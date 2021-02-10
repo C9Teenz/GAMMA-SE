@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gamma.rechealth.DetailPasienActivity
 import com.gamma.rechealth.R
+import com.gamma.rechealth.model.Penyakit
+import kotlinx.android.synthetic.main.item_pasien.view.*
 import kotlinx.android.synthetic.main.item_pasien_active.view.*
 
-class DaftarPasienAdapter(val context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DaftarPasienAdapter(val context: Context, val list: List<Penyakit>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val ACTIVE = 1
@@ -18,10 +21,17 @@ class DaftarPasienAdapter(val context: Context) : RecyclerView.Adapter<RecyclerV
     }
 
     class ActiveViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(context: Context) {
+        fun bindView(context: Context, penyakit: Penyakit) {
+
+            view.tvPasien.text = penyakit.namaPasien
+            view.tvPenyakitAktif.text =
+                if (penyakit.penyakit == "") "Belum Diketahui" else penyakit.penyakit
             view.itemPasienActive.setOnClickListener {
                 context.startActivity(
-                    Intent(context, DetailPasienActivity::class.java)
+                    Intent(
+                        context,
+                        DetailPasienActivity::class.java
+                    ).putExtra(DetailPasienActivity.EXTRA_PENYAKT, penyakit)
                 )
             }
         }
@@ -29,8 +39,12 @@ class DaftarPasienAdapter(val context: Context) : RecyclerView.Adapter<RecyclerV
     }
 
     class NonActiveViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(context: Context) {
-
+        fun bindView(context: Context, penyakit: Penyakit) {
+            view.apply {
+                tvPasienn.text = penyakit.namaPasien
+                tvPenyakitt.text =
+                    if (penyakit.penyakit == "") "Belum Diketahui" else penyakit.penyakit
+            }
         }
     }
 
@@ -49,15 +63,15 @@ class DaftarPasienAdapter(val context: Context) : RecyclerView.Adapter<RecyclerV
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (position == 0) {
             true -> {
-                (holder as ActiveViewHolder).bindView(context)
+                (holder as ActiveViewHolder).bindView(context, list[position])
             }
             else -> {
-                (holder as NonActiveViewHolder).bindView(context)
+                (holder as NonActiveViewHolder).bindView(context, list[position])
             }
         }
     }
 
-    override fun getItemCount(): Int = 7
+    override fun getItemCount(): Int = list.size
 
     override fun getItemViewType(position: Int): Int {
         return if (position == 0) {

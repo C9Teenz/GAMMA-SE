@@ -3,6 +3,8 @@ package com.gamma.rechealth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.gamma.rechealth.ui.LoginActivity
+import com.gamma.rechealth.ui.RegisterActivity
 import kotlinx.android.synthetic.main.activity_halaman_awal.*
 
 class HalamanAwal : AppCompatActivity() {

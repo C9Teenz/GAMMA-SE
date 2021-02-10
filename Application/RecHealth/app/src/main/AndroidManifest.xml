@@ -6,6 +6,8 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the "MyLocation" functionality.
     -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,6 +19,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RecHealth">
+        <activity android:name=".ui.ConfirmCheckup"></activity>
+        <activity android:name=".ui.ProfileActivity" />
+
+        <receiver
+            android:name=".helper.OTPReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
 
         <activity android:name=".JadwalActivity" />
         <!--
@@ -39,7 +52,7 @@
             android:name=".DaftarRiwayatPenyakitActivity"
             android:label="@string/title_activity_daftar_riwayat_penyakit"
             android:theme="@style/Theme.RecHealth.NoActionBar" />
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".ui.SearchActivity" />
         <activity
             android:name=".OnBoardingActivity"
             android:label="@string/title_activity_on_boarding" />
@@ -50,16 +63,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePasien" />
-        <activity android:name=".DetailArtikel" />
-        <activity android:name=".FormDaftarCheckUp" />
-        <activity android:name=".FormCatatanMedis" />
+        <activity android:name=".ui.HomePasien" />
+        <activity android:name=".ui.DetailArtikel" />
+        <activity android:name=".ui.FormDaftarCheckUp" />
+        <activity android:name=".ui.FormCatatanMedis" />
         <activity android:name=".HalamanAwal" />
         <activity android:name=".ui.VerifikasiActivity" />
         <activity android:name=".DetailRiwayatPenyakit" />
         <activity android:name=".DetailPasienActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
+        <activity android:name=".ui.LoginActivity" />
+        <activity android:name=".ui.RegisterActivity" />
     </application>
 
 </manifest>

@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gamma.rechealth.R
 import com.gamma.rechealth.model.Jadwal
+import kotlinx.android.synthetic.main.item_jadwal.view.*
 import kotlinx.android.synthetic.main.item_jadwal_title.view.*
 
-class JadwalAdapter(val list: ArrayList<Jadwal>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class JadwalAdapter(val list: ArrayList<Jadwal>, val callback: (Jadwal) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     companion object {
         const val TITLE = 1
@@ -23,8 +25,15 @@ class JadwalAdapter(val list: ArrayList<Jadwal>) : RecyclerView.Adapter<Recycler
     }
 
     class ContentViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bindView(jadwal: Jadwal) {
+        fun bindView(jadwal: Jadwal, callback: (Jadwal) -> Unit) {
+            view.apply {
+                tvDokter.text = jadwal.title
+                tvTime.text = jadwal.time
 
+                itemRiwayatPenyakit.setOnClickListener {
+                    callback(jadwal)
+                }
+            }
         }
 
     }
@@ -42,12 +51,12 @@ class JadwalAdapter(val list: ArrayList<Jadwal>) : RecyclerView.Adapter<Recycler
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(list[position].isTitle){
+        when (list[position].isTitle) {
             true -> {
                 (holder as TitleViewHolder).bindView(list[position])
             }
             else -> {
-                (holder as ContentViewHolder).bindView(list[position])
+                (holder as ContentViewHolder).bindView(list[position], callback)
             }
         }
     }

@@ -1,19 +1,50 @@
 package com.gamma.rechealth.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.gamma.rechealth.DetailRiwayatPenyakit
 import com.gamma.rechealth.R
-import kotlinx.android.synthetic.main.item_riwayat_penyakit.view.*
+import com.gamma.rechealth.model.DataKontrol
+import kotlinx.android.synthetic.main.item_diagnosis.view.*
 
-class DetailRiwayatPenyakitAdapter(val context: Context) :
+class DetailRiwayatPenyakitAdapter(
+    val context: Context,
+    val dataKontrol: List<DataKontrol>
+) :
     RecyclerView.Adapter<DetailRiwayatPenyakitAdapter.ViewHolder>() {
+
+
     class ViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(context: Context) {
+        val bulan = arrayOf(
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember"
+        )
+
+        fun bind(context: Context, dataKontrol: DataKontrol) {
+            itemView.apply {
+                tvSistolik.text = "${dataKontrol.tekananDarahSistolik} mmHg"
+                tvDiastolik.text = "${dataKontrol.tekananDarahDiastolik} mmHg"
+                tvGula.text = "${dataKontrol.kadarGula} md/dL"
+                tvBerat.text = "${dataKontrol.beratBadan} kg"
+                tvStatus.text = dataKontrol.status
+                tvCatatan.text = dataKontrol.catatan
+
+                val tanggal = dataKontrol.tanggalPeriksa.split("-")
+                tvTanggal.text = tanggal[0]
+                tvBulan.text = bulan[Integer.parseInt(tanggal[1]) - 1]
+            }
         }
     }
 
@@ -24,10 +55,10 @@ class DetailRiwayatPenyakitAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(context)
+        holder.bind(context, dataKontrol[position])
     }
 
     override fun getItemCount(): Int {
-        return 7
+        return dataKontrol.size
     }
 }

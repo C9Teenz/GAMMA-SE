@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:backgroundTint="#DB4062"
     android:orientation="vertical"
-    tools:context=".FormCatatanMedis">
+    tools:context=".ui.FormCatatanMedis">
 
     <LinearLayout
         android:id="@+id/toolbar"
@@ -32,81 +32,132 @@
             android:textColor="@color/red"
             android:textSize="20sp" />
     </LinearLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tekanan Darah Sistolik" />
+
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/etSistolik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/edittext_style"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:ems="10"
+                android:inputType="number" />
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tekanan Darah Diastolik" />
+
             <EditText
-                android:id="@+id/editTextTextPersonName3"
+                android:id="@+id/etDiastolik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/edittext_style"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kadar Gula" />
+
+            <EditText
+                android:id="@+id/etGula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edittext_style"
+                android:ems="10"
+                android:inputType="number" />
+
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Berat Badan" />
+
             <EditText
-                android:id="@+id/editTextTextPersonName4"
+                android:id="@+id/etBerat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/edittext_style"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Penyakit" />
+
+            <EditText
+                android:id="@+id/etPenyakit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edittext_style"
+                android:ems="10"
+                android:inputType="text" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status" />
+
+            <EditText
+                android:id="@+id/etStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/edittext_style"
+                android:ems="10"
+                android:inputType="text" />
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hasil Pemeriksaan" />
+
             <EditText
-                android:id="@+id/editTextTextPersonName6"
+                android:id="@+id/etCatatan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:gravity="top"
                 android:inputType="textMultiLine"
-                android:lines="4"
-                android:gravity="top" />
+                android:lines="4" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button3"
+                android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Submit"
-                app:cornerRadius="50dp"
-                app:backgroundTint="#DB4062" />
+                app:backgroundTint="#DB4062"
+                app:cornerRadius="50dp" />
 
         </LinearLayout>
     </ScrollView>

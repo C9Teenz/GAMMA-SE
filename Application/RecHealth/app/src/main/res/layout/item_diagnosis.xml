@@ -19,7 +19,7 @@
             android:layout_alignBottom="@id/leftContent"
             />
         <TextView
-            android:id="@+id/tvHelpContentNumber"
+            android:id="@+id/tvTanggal"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:background="@drawable/btn_style"
@@ -30,7 +30,7 @@
             android:textSize="12sp"/>
 
         <LinearLayout
-            android:layout_toRightOf="@id/tvHelpContentNumber"
+            android:layout_toRightOf="@id/tvTanggal"
             android:id="@+id/leftContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_marginEnd="16dp"
             android:paddingBottom="16dp">
             <TextView
-                android:id="@+id/tvHelpContentTitle"
+                android:id="@+id/tvBulan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
@@ -71,6 +71,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvSistolik"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="120 mmHg"
@@ -91,6 +92,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvDiastolik"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="80 mmHg"
@@ -111,6 +113,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvGula"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="120 md/dL"
@@ -131,6 +134,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvBerat"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="60 kg"
@@ -151,6 +155,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvStatus"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:text="Belum Sembuh"
@@ -172,6 +177,7 @@
                             android:fontFamily="@font/inter_light"
                             android:layout_weight="0.5"/>
                         <TextView
+                            android:id="@+id/tvCatatan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Jangan begadang !"

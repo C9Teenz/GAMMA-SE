@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.gamma.rechealth.HomePasien
+import com.gamma.rechealth.HomeDokterActivity
 import com.gamma.rechealth.R
 import com.gamma.rechealth.firebase.auth.Auth
 import com.gamma.rechealth.firebase.firestore.FirestoreUser
@@ -27,6 +27,7 @@ class VerifikasiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verifikasi)
+
 
 
         user = intent.getParcelableExtra<User>(EXTRA_USER)
@@ -92,8 +93,13 @@ class VerifikasiActivity : AppCompatActivity() {
                             user?.idUser = authUser?.uid!!
                             FirestoreUser.saveUser(user!!) { isExist, user ->
                                 if (isExist) {
-                                    startActivity(Intent(this, HomePasien::class.java))
-                                    finishAffinity()
+                                    if(user.role == "USER"){
+                                        startActivity(Intent(this, HomePasien::class.java))
+                                        finishAffinity()
+                                    } else if(user.role == "DOKTER") {
+                                        startActivity(Intent(this, HomeDokterActivity::class.java))
+                                        finishAffinity()
+                                    }
                                 } else {
                                     Toast.makeText(this, "Registrasi gagal", Toast.LENGTH_SHORT)
                                         .show()

@@ -8,14 +8,29 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gamma.rechealth.DetailRiwayatPenyakit
 import com.gamma.rechealth.R
+import com.gamma.rechealth.model.Penyakit
 import kotlinx.android.synthetic.main.item_riwayat_penyakit.view.*
 
-class RiwayatPenyakitAdapter(val context: Context) :
+class RiwayatPenyakitAdapter(val context: Context, val listPenyakit: List<Penyakit>) :
     RecyclerView.Adapter<RiwayatPenyakitAdapter.ViewHolder>() {
     class ViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(context: Context) {
+        fun bind(context: Context, penyakit: Penyakit) {
+            itemView.tvPenyakit.text =
+                if (penyakit.penyakit != "") penyakit.penyakit else "Belum Diketahui"
+
+            itemView.tvTanggalPeriksa.text =
+                if (penyakit.diperiksaPada == "") "-" else penyakit.diperiksaPada
+
+            itemView.tvPoli.text = penyakit.poli
+            itemView.tvRumahSakit.text = penyakit.rumahSakit
+            itemView.tvDokter.text = penyakit.namaDokter
+
+
             itemView.itemRiwayatPenyakit.setOnClickListener {
-                val intent = Intent(context, DetailRiwayatPenyakit::class.java)
+                val intent = Intent(context, DetailRiwayatPenyakit::class.java).putExtra(
+                    DetailRiwayatPenyakit.EXTRA_PENYAKIT,
+                    penyakit
+                )
                 context.startActivity(intent)
             }
         }
@@ -28,10 +43,8 @@ class RiwayatPenyakitAdapter(val context: Context) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(context)
+        holder.bind(context, listPenyakit[position])
     }
 
-    override fun getItemCount(): Int {
-        return 7
-    }
+    override fun getItemCount(): Int = listPenyakit.size
 }

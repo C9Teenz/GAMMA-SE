@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/ivArticle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
@@ -37,13 +38,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
     <TextView
-        android:id="@+id/tvArtikel"
+        android:id="@+id/tvContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/quicksand_reguler"
         android:textColor="#828282"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt..."
         android:paddingStart="8dp"
+        android:maxLines="3"
+        android:ellipsize="end"
         android:paddingEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
